@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/goodreads.iml" filepath="$PROJECT_DIR$/.idea/modules/goodreads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/goodreads-build.iml" filepath="$PROJECT_DIR$/.idea/modules/goodreads-build.iml" />
     </modules>
   </component>
 </project>
