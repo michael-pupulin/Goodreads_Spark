@@ -24,41 +24,16 @@ object Main {
 
 
 //for aws read
-//  val df: DataFrame = spark.read.option("inferSchema","true")
-//    .json("s3a://pupulin-goodreads/goodreads_books.json")
-  //set access key
-//for local read
-    val df: DataFrame = spark.read.option("inferSchema","true")
-      .json("goodreads_books.json")
+ val df: DataFrame = spark.read.option("inferSchema","true")
+   .json("s3a://pupulin-goodreads/goodreads_books.json")
+
 
 
   df.show(5)
-//
-//  val dfavg: DataFrame = df.select(col("average_rating").cast("double"),col("publisher"),col("publication_year"))
-//    .groupBy(col("publisher"))
-//    .mean("average_rating")
-
-
- // dfavg.show(4)
 
 
 
 
-//  val dfPR = df.filter(col("publisher")==="Penguin Books" ||
-//    col("publisher")==="Random House" ||
-//    col("publisher")==="Penguin Random House")
-//    .select(col("publication_year"),col("publisher"))
-//    .groupBy("publication_year")
-//    .count()
-//
-//
-//
-//  val dfSS = df.filter(col("publisher")==="Simon & Schuster")
-//    .select(col("publication_year"),col("publisher"))
-//    .groupBy("publication_year")
-//    .count()
-
-//  dfSS.show(10)
 
   val SSavg_year: DataFrame = df.filter(col("publisher")==="Penguin Books" ||
     col("publisher")==="Random House" ||
@@ -76,11 +51,8 @@ object Main {
 
   PRavg_year.show(10)
 //  //writing
-//  dfavg.coalesce(1).write.csv("s3a://pupulin-goodreads/avg_all.csv")
   PRavg_year.coalesce(1).write.csv("s3a://pupulin-goodreads/avg_pr_by_yr.csv")
   SSavg_year.coalesce(1).write.csv("s3a://pupulin-goodreads/avg_ss_by_yr.csv")
-//  dfPR.coalesce(1).write.csv("s3a://pupulin-goodreads/pr_yr.csv")
-//  dfSS.coalesce(1).write.csv("s3a://pupulin-goodreads/ss_yr.csv")
   def main(args: Array[String]): Unit = {
     println("done")
   }
