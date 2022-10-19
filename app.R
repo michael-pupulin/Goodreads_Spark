@@ -1,11 +1,4 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 library(shiny)
 library(shinydashboard)
 library(paws)
@@ -17,7 +10,7 @@ library(forecast)
 library(zoo)
 library(lubridate)
 library(smooth)
-# Define UI for application that draws a histogram
+# Define UI for application 
 ui <- dashboardPage(
   skin = "blue",
   dashboardHeader(title = 'Goodreads Data'),
@@ -40,13 +33,13 @@ ui <- dashboardPage(
   )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic 
 server <- function(input, output) {
   
   
   Sys.setenv(
-    AWS_ACCESS_KEY_ID = "AKIASZCQN6XXZWFR4G6Q",
-    AWS_SECRET_ACCESS_KEY = "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",
+    AWS_ACCESS_KEY_ID = " ",
+    AWS_SECRET_ACCESS_KEY = " ",
     AWS_REGION = "us-east-2")
   
   ###connecting to s3
